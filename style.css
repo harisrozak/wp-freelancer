@@ -1,0 +1,49 @@
+/**
+ * Theme Name: WP Freelancer
+ * Theme URI: https://github.org/harisrozak/wp-freelancer
+ * Author: Haris Ainur Rozak
+ * Author URI: https://github.org/harisrozak
+ * Description: WordPress version of Freelancer HTML template by startbootstrap.com
+ * Text Domain: wp-freelancer
+ * License: GNU General Public License v2 or later
+ */
+
+body.admin-bar .navbar-fixed-top {
+	margin-top: 32px;
+}
+
+.circle-border {
+	border-radius: 100%;
+}
+
+.wpcf7 .floating-label-form-group input, 
+.wpcf7 .floating-label-form-group textarea {
+	width: 100%;
+	padding: 0 0 10px;
+}
+
+.wpcf7 .floating-label-form-group textarea {
+	height: 170px;
+}
+
+.wpcf7 .floating-label-form-group input:focus, 
+.wpcf7 .floating-label-form-group textarea:focus {
+	border: none;
+	outline: 0px;
+}
+
+.wpcf7 input[type= submit] {
+	margin-top: 20px
+}
+
+@media screen and (max-width: 767px) {
+	body.admin-bar .navbar-fixed-top {
+		margin-top: 46px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	body.admin-bar .navbar-fixed-top {
+		margin-top: 0px;
+	}
+}
