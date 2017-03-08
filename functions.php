@@ -154,22 +154,18 @@ function wp_freelacer_wpcf7_first_id() {
     }
 }
 
-// avoid fatal error if no acf plugin installed
-if(! function_exists('the_field')) {
-    function the_field($field) {
-        echo $field;
-    }
-
-    function get_field($field) {
-        return $field;
-    }
-}
+/** 
+ * ACF in Theme Mode
+ */
+include_once( trailingslashit(get_template_directory() ) . 'inc/advanced-custom-fields/acf.php' );
+include_once( trailingslashit(get_template_directory() ) . 'inc/custom-fields.php' );
+define( 'ACF_LITE', true );
 
 /**
  * OptionTree in Theme Mode
  */
-require( trailingslashit(get_template_directory()) . 'option-tree/ot-loader.php' );
-require( trailingslashit( get_template_directory()) . 'theme-options.php' );
+require( trailingslashit(get_template_directory() ) . 'inc/option-tree/ot-loader.php' );
+require( trailingslashit(get_template_directory() ) . 'inc/theme-options.php' );
 add_filter( 'ot_theme_mode', '__return_true' );
 add_filter( 'ot_show_pages', '__return_false' );
 
