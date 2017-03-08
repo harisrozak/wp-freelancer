@@ -18,8 +18,6 @@ function wp_freelancer_add_theme_scripts() {
   	wp_enqueue_script( 'jquery' );
   	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/vendor/bootstrap/js/bootstrap.min.js', array ( 'jquery' ), 1.1, true);
   	wp_enqueue_script( 'easing', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', array ( 'jquery' ), 1.1, true);
-    wp_enqueue_script( 'bootstrap-validation', get_template_directory_uri() . '/js/jqBootstrapValidation.js', array ( 'jquery' ), 1.1, true);
-    wp_enqueue_script( 'contact-me', get_template_directory_uri() . '/js/contact_me.js', array ( 'jquery' ), 1.1, true);
     wp_enqueue_script( 'freelancer', get_template_directory_uri() . '/js/freelancer.min.js', array ( 'jquery' ), 1.1, true);
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

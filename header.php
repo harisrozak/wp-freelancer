@@ -25,15 +25,16 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <?php 
+            <?php 
+                if (has_nav_menu('header-menu')) {
                     wp_nav_menu( array( 
                         'theme_location' => 'header-menu',
                         'menu_class' => 'nav navbar-nav navbar-right',
-                        'container' => ''
+                        'container' => 'div',
+                        'container_class' => 'collapse navbar-collapse'
                     ) ); 
-                ?>
-            </div>
+                }
+            ?>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
