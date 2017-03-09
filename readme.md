@@ -1,6 +1,6 @@
 # Workshop WordPress: Membuat Website Portofolio
 
-##Bahan:
+### Bahan:
 1. WordPress 4.7.X
 2. Plugin: OptionTree
 3. Plugin: Advanced Custom Fields
@@ -9,7 +9,7 @@
   - https://startbootstrap.com/template-overviews/freelancer/
   - https://github.com/BlackrockDigital/startbootstrap-freelancer
 
-## Basic Steps:
+### Basic Steps:
 1. Install WordPress beserta plugin yang dibutuhkan
 2. Membuat dasar tema:
   - folder tema
@@ -31,19 +31,19 @@
   + replace attribut class dalam `<body>` dengan `<?php body_class(); ?>` 
 
 - File footer.php
-  + copy - paste isi file index.html dari '<!-- Footer -->' sampai akhir file
+  + copy - paste isi file index.html dari `<!-- Footer -->` sampai akhir file
   + hapus teks include file css dan js
   + pindah teks yang tidak perlu di footer.php ke bagian bawah front-page.php, dalam hal ini section `<!-- Portfolio Modals -->`
   + tambah teks sebelum `</body>` dengan `<?php wp_footer(); ?>`
-  + wp_footer() berisi include file js yang tempatnya di footer, juga script navigasi WordPress
+  + `wp_footer()` berisi include file js yang tempatnya di footer, juga script navigasi WordPress
 
-- style.css
+- File style.css
   + css untuk membuat `.navbar-fixed-top` punya margin-top saat ada admin-bar
 
 - File front-page.php
   + copy - paste isi file index.html dari template
   + ganti text dari pertama sampai tag `</header>` dengan `<?php get_header() ?>`
-  + ganti teks dari '<!-- Footer -->' sampai akhir file dengan `<?php get_footer() ?>`
+  + ganti teks dari `<!-- Footer -->` sampai akhir file dengan `<?php get_footer() ?>`
   + sesuaikan gambar yang missing sampai terlihat sama dengan template html, dengan related folder `<?php echo get_template_directory_uri() ?>/`  
 
 - Periksa browser console (ctrl + shift + j), jika ada error `$` biasanya dia minta diganti dengan `jQuery`
@@ -51,18 +51,18 @@
 # PHASE 2 : Inject engine
 
 - Set header site title
-  + title `<?php bloginfo( 'name' ); ?>`
-  + url `<?php echo esc_url( home_url( '/' ) ); ?>#page-top`
+  + Title `<?php bloginfo( 'name' ); ?>`
+  + Url `<?php echo esc_url( home_url( '/' ) ); ?>#page-top`
 
 - Set header menu (https://codex.wordpress.org/Navigation_Menus)
-  + register menu on functions.php (https://codex.wordpress.org/Function_Reference/register_nav_menus)
-  + display menu on header.php (https://developer.wordpress.org/reference/functions/wp_nav_menu/)
-  + use conditional `has_nav_menu('menu-location')` to print `wp_nav_menu`
-  + add class to <li> (https://codex.wordpress.org/Plugin_API/Filter_Reference/nav_menu_css_class)
+  + Register menu on functions.php (https://codex.wordpress.org/Function_Reference/register_nav_menus)
+  + Display menu on header.php (https://developer.wordpress.org/reference/functions/wp_nav_menu/)
+  + Use conditional `has_nav_menu('menu-location')` to print `wp_nav_menu`
+  + Add class `page-scroll` to all `<li>` (https://codex.wordpress.org/Plugin_API/Filter_Reference/nav_menu_css_class)
 
 - Set footer copyright text
 
-- Set theme option dengan optiontree
+- Create theme option dengan optiontree
   + main_picture
   + main_title
   + main_subtitle
@@ -86,7 +86,7 @@
 
 - Membuat post type `portfolio` (https://github.com/harisrozak/wp-sample-custom-post-type)
 
-- Membuat custom taxonomy: service
+- Membuat custom taxonomy: `service`
 
 - Add theme support thumbnail (https://developer.wordpress.org/reference/functions/add_theme_support/)
 
@@ -94,10 +94,13 @@
 
 - Add query to show the portfolio (https://gist.github.com/harisrozak/1520974de004a48c515b)
 
-- Email form with contact form 7
-  + create the form with contact form 7 and ajust to the provided design
-  + filter default template: `wpcf7_default_template`
-  + show the first contact form 7 form, use WP_Query get first post type `wpcf7_contact_form` post_ID
+- Show acf field on frontend with `the_field('lorem-meta')` or `echo get_field('lorem-meta')`
+
+- Email form with contact form 7. Make the email form fits with design and also make the frontpage automatically load the first created contact form 7 with these steps:
+  + Create the form with contact form 7 and ajust to the provided design
+  + Filter default template: `wpcf7_default_template`, for detailed article visit: https://medium.com/@deyanyanakiev/embed-contact-form-7-in-your-custom-theme-9e038c494815#.ce3yejz6w
+  + Show the first contact form 7 form, use WP_Query get first `post_ID` of post type `wpcf7_contact_form` 
+  + The final code will be like this: `<?php echo do_shortcode('[contact-form-7 id="' . wp_freelacer_wpcf7_first_id() . '"]'); ?>`
 
 # PHASE 3 : Finishing
 
@@ -123,7 +126,7 @@
   + porfolio images
   + contact_me.js
   + jqBootstrapValidation.js
-  + don't forget to edit wp_enqueue section on functions.php because of removed js files
+  + dont forget to edit wp_enqueue section on functions.php because of removed js files
 
 - Copy theme to other wordpress for full testing
 
